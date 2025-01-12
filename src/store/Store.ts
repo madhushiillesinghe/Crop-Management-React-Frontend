@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import cropReducer from '../reducer/CropReducer.ts';
+import equipmentReducer from "../reducer/EquipmentReducer.ts";
 
 const store = configureStore({
     reducer: {
         crop: cropReducer,
+        equipment: equipmentReducer,
     },
 });
 

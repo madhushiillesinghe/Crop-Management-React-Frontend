@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from "../../../store/Store.ts";
 import { Crop } from "../../../model/Crop.ts";
-import { addCrop, toggleForm, deleteCrop, editCrop, setCurrentCropId } from "../../../reducer/CropReducer.ts";
+import { addCrop, toggleForm, editCrop, setCurrentCropId } from "../../../reducer/CropReducer.ts";
 
 const CropForm: React.FC = () => {
     const [formValues, setFormValues] = useState({

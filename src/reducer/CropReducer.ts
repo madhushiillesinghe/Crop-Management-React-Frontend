@@ -4,13 +4,13 @@ import { Crop } from "../model/Crop.ts";
 interface CropState {
     crops: Crop[];
     showForm: boolean;
-    currentCropId: string | null; // Added the currentCropId field here
+    currentCropId: string | null;
 }
 
 const initialState: CropState = {
     crops: [],
     showForm: false,
-    currentCropId: null, // Initializing currentCropId as null
+    currentCropId: null,
 };
 
 const cropSlice = createSlice({
