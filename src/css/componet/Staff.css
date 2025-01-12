@@ -1,0 +1,125 @@
+/* General styling for the Staff page */
+.staff-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f9;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+/* Button to add staff */
+.add-staff-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.add-staff-btn:hover {
+    background-color: #45a049;
+}
+
+/* Styling for the staff form */
+.staff-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.staff-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.staff-form button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.staff-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Styling for the staff list */
+.staff-list {
+    margin-top: 40px;
+}
+
+.staff-list h3 {
+    text-align: center;
+    color: #333;
+}
+
+.staff-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.staff-card {
+    width: 250px;
+    background-color: white;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+}
+
+.staff-card:hover {
+    transform: scale(1.05);
+}
+
+.staff-card p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.staff-card button {
+    padding: 6px 12px;
+    margin: 5px;
+    background-color: #ffc107;
+    color: white;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.staff-card button:hover {
+    background-color: #e0a800;
+}
+
+.staff-card button:last-child {
+    background-color: #dc3545;
+}
+
+.staff-card button:last-child:hover {
+    background-color: #c82333;
+}

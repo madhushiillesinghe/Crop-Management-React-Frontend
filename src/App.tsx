@@ -6,6 +6,7 @@ import CropPage from './pages/CropPage.tsx';
 import EquipmentPage from './pages/EquipmentPage.tsx';
 import FieldPage from "./pages/FieldPage.tsx";
 import VehiclePage from "./pages/VehiclePage.tsx";
+import StaffPage from "./pages/StaffPage.tsx";
 
 const App: React.FC = () => {
     return (
@@ -27,6 +28,9 @@ const App: React.FC = () => {
                             <li>
                                 <Link to="/vehicle">Vehicle</Link>
                             </li>
+                            <li>
+                                <Link to="/staff">Staff</Link>
+                            </li>
                         </ul>
                     </nav>
                     <Routes>
@@ -35,6 +39,7 @@ const App: React.FC = () => {
                         <Route path="/crop" element={<CropPage />} />
                         <Route path="/field" element={<FieldPage />} />
                         <Route path="/vehicle" element={<VehiclePage />} />
+                        <Route path="/staff" element={<StaffPage />} />
 
 
                     </Routes>

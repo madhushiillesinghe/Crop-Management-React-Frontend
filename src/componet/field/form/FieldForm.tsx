@@ -41,7 +41,6 @@ const FieldForm: React.FC = () => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (currentFieldCode) {
-            // Edit the existing field
             dispatch(editField({
                 ...fieldData,
                 staffList: [],

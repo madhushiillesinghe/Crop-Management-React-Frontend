@@ -1,16 +1,15 @@
+// model/Staff.ts
 import { MoniteringLog } from './MoniteringLog';
 import { Equipment } from './Equipment';
 import { Vehicle } from './Vehicle';
 import { Field } from './Field';
 
-export class Staff{
+export class Staff {
     id: string;
-    name: {
-        firstName: string;
-        lastName: string;
-    };
+    firstName: string;
+    lastName: string;
     designation: string;
-    gender: string; // Assuming gender is a string (adjust based on your backend enum)
+    gender: string;
     joinedDate: string;
     dob: string;
     address: string;
@@ -22,12 +21,11 @@ export class Staff{
     vehicles: Vehicle[];
     fields: Field[];
 
-    constructor(id: string, name: {
-        firstName: string;
-        lastName: string
-    }, designation: string, gender: string, joinedDate: string, dob: string, address: string, contactNo: string, email: string, role: string, monitoringLogs: MoniteringLog[], equipment: Equipment[], vehicles: Vehicle[], fields: Field[]) {
+
+    constructor(id: string, firstName: string, lastName: string, designation: string, gender: string, joinedDate: string, dob: string, address: string, contactNo: string, email: string, role: string, monitoringLogs: MoniteringLog[], equipment: Equipment[], vehicles: Vehicle[], fields: Field[]) {
         this.id = id;
-        this.name = name;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.designation = designation;
         this.gender = gender;
         this.joinedDate = joinedDate;
