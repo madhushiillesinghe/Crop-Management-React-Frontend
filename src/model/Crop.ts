@@ -1,3 +1,4 @@
+import { MoniteringLog } from './MoniteringLog';
 export class Crop {
     code: string;
     commonName: string;
@@ -6,8 +7,10 @@ export class Crop {
     category: string;
     season: string;
     fieldCode: string;
+    monitoringLogs: MoniteringLog[];
 
-    constructor(code: string, commonName: string, scientificName: string, cropImage: string, category: string, season: string, fieldCode: string) {
+
+    constructor(code: string, commonName: string, scientificName: string, cropImage: string, category: string, season: string, fieldCode: string,monitoringLogs:MoniteringLog[]) {
         this.code = code;
         this.commonName = commonName;
         this.scientificName = scientificName
@@ -15,6 +18,7 @@ export class Crop {
         this.category = category;
         this.season = season;
         this.fieldCode = fieldCode;
+        this.monitoringLogs = monitoringLogs;
 
     }
 }
