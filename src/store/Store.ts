@@ -4,6 +4,7 @@ import equipmentReducer from "../reducer/EquipmentReducer.ts";
 import fieldReducer from "../reducer/FieldReducer.ts";
 import vehicleReducer from "../reducer/VehicleReducer.ts";
 import StaffReducer from "../reducer/StaffReducer.ts";
+import MoniteringLogReducer from "../reducer/MoniteringLogReducer.ts";
 
 const store = configureStore({
     reducer: {
@@ -11,7 +12,8 @@ const store = configureStore({
         equipment: equipmentReducer,
         field: fieldReducer,
         vehicle:vehicleReducer,
-        staff:StaffReducer
+        staff:StaffReducer,
+        monitoringLog:MoniteringLogReducer
     },
 });
 

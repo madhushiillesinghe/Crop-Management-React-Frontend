@@ -1,0 +1,43 @@
+.monitoring-log-list {
+    margin: 20px;
+    padding: 20px;
+}
+
+.monitoring-log-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.monitoring-log-table th, .monitoring-log-table td {
+    border: 1px solid #110c0c;
+    padding: 12px;
+    text-align: center;
+}
+
+.monitoring-log-table th {
+    background-color: #110c0c;
+    font-weight: bold;
+}
+
+.monitoring-log-table tr:nth-child(even) {
+    background-color: #110c0c;
+}
+
+.monitoring-log-table tr:hover {
+    background-color: #110c0c;
+}
+
+.monitoring-log-table td button {
+    padding: 6px 12px;
+    margin: 0 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.monitoring-log-table td button:hover {
+    background-color: #45a049;
+}

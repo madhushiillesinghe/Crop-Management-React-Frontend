@@ -7,6 +7,8 @@ import EquipmentPage from './pages/EquipmentPage.tsx';
 import FieldPage from "./pages/FieldPage.tsx";
 import VehiclePage from "./pages/VehiclePage.tsx";
 import StaffPage from "./pages/StaffPage.tsx";
+import MoniteringLogPage from "./pages/MoniteringLogPage.tsx";
+
 
 const App: React.FC = () => {
     return (
@@ -31,6 +33,9 @@ const App: React.FC = () => {
                             <li>
                                 <Link to="/staff">Staff</Link>
                             </li>
+                            <li>
+                                <Link to="/log">log</Link>
+                            </li>
                         </ul>
                     </nav>
                     <Routes>
@@ -40,7 +45,7 @@ const App: React.FC = () => {
                         <Route path="/field" element={<FieldPage />} />
                         <Route path="/vehicle" element={<VehiclePage />} />
                         <Route path="/staff" element={<StaffPage />} />
-
+                        <Route path="/log" element={<MoniteringLogPage />} />
 
                     </Routes>
                 </div>
