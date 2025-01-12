@@ -1,0 +1,61 @@
+/* Styling for the entire form container */
+.vehicle-form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling the input fields */
+.vehicle-form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Add some hover effect for inputs */
+.vehicle-form input:hover {
+    border-color: #007BFF;
+}
+
+/* Styling for the submit button */
+.vehicle-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the submit button */
+.vehicle-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Input placeholders styling */
+.vehicle-form input::placeholder {
+    color: #888;
+    font-style: italic;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .vehicle-form {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .vehicle-form input, .vehicle-form button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
