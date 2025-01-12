@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import store from './store/Store.ts';
 import CropPage from './pages/CropPage.tsx';
 import EquipmentPage from './pages/EquipmentPage.tsx';
+import FieldPage from "./pages/FieldPage.tsx";
 
 const App: React.FC = () => {
     return (
@@ -14,10 +15,13 @@ const App: React.FC = () => {
                         <ul>
                             {/* Navigation Links */}
                             <li>
-                                <Link to="/equipment">Equipment Page</Link>
+                                <Link to="/equipment">Equipment</Link>
                             </li>
                             <li>
-                                <Link to="/crop">Crop Page</Link>
+                                <Link to="/crop">Crop</Link>
+                            </li>
+                            <li>
+                                <Link to="/field">Field</Link>
                             </li>
                         </ul>
                     </nav>
@@ -25,6 +29,8 @@ const App: React.FC = () => {
                         {/* Define Routes */}
                         <Route path="/equipment" element={<EquipmentPage />} />
                         <Route path="/crop" element={<CropPage />} />
+                        <Route path="/field" element={<FieldPage />} />
+
                     </Routes>
                 </div>
             </Router>

@@ -1,0 +1,26 @@
+/* Add this to your CSS file or within a <style> tag in the component */
+.field-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.field-form input,
+.field-form button {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.field-form button {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+.field-form button:hover {
+    background-color: #45a049;
+}
