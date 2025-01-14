@@ -8,7 +8,7 @@ import {
     setCurrentLogCode,
     toggleMonitoringLogForm
 } from "../../../reducer/MoniteringLogReducer.ts";
-import "../../../css/componet/field.css";
+import ReusableForm from "../../Form/CommonForm.tsx";
 
 const MonitoringLogForm: React.FC = () => {
     const dispatch = useDispatch();
@@ -16,6 +16,7 @@ const MonitoringLogForm: React.FC = () => {
     const monitoringLogs = useSelector((state: RootState) => state.monitoringLog.monitoringLogs);
     const showForm = useSelector((state: RootState) => state.monitoringLog.showForm);
 
+    const [isEditing, setIsEditing] = useState(false);
     const [formValues, setFormValues] = useState<MoniteringLog>({
         logCode: '',
         logDate: new Date(),
@@ -25,8 +26,6 @@ const MonitoringLogForm: React.FC = () => {
         staffList: [],
         cropList: [],
     });
-
-    const [isEditing, setIsEditing] = useState(false);
 
     useEffect(() => {
         if (currentLogCode) {
@@ -39,26 +38,6 @@ const MonitoringLogForm: React.FC = () => {
             resetForm();
         }
     }, [currentLogCode, monitoringLogs]);
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const { name, value } = e.target;
-        setFormValues({
-            ...formValues,
-            [name]: value,
-        });
-    };
-
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-
-        if (isEditing) {
-            dispatch(editMonitoringLog(formValues));
-        } else {
-            dispatch(addMonitoringLog({ ...formValues, logDate: new Date() }));
-        }
-
-        resetForm();
-    };
 
     const resetForm = () => {
         setFormValues({
@@ -75,73 +54,35 @@ const MonitoringLogForm: React.FC = () => {
         dispatch(setCurrentLogCode(null));
     };
 
+    const handleSubmit = (values: MoniteringLog) => {
+        if (isEditing) {
+            dispatch(editMonitoringLog(values));
+        } else {
+            dispatch(addMonitoringLog({ ...values, logDate: new Date() }));
+        }
+        resetForm();
+    };
+
     const handleClose = () => {
         resetForm();
     };
 
+    const fields = [
+        { name: 'logCode', label: 'Log Code', type: 'text', placeholder: 'Log Code', required: true, disabled: isEditing },
+        { name: 'observation', label: 'Observation', type: 'textarea', placeholder: 'Observation', required: true },
+        { name: 'fieldCode', label: 'Field Code', type: 'text', placeholder: 'Field Code', required: true },
+        { name: 'observedImage', label: 'Observed Image URL', type: 'text', placeholder: 'Observed Image URL' },
+    ];
+
     return (
-        <div className={`modal-overlay ${showForm ? 'show' : ''}`}>
-            <div className="modal-content">
-                <form onSubmit={handleSubmit} className="field-form">
-                    <h2>{isEditing ? "Edit Monitoring Log" : "Add New Monitoring Log"}</h2>
-
-                    <div className="form-field">
-                        <label>Log Code</label>
-                        <input
-                            type="text"
-                            name="logCode"
-                            placeholder="Log Code"
-                            value={formValues.logCode}
-                            onChange={handleChange}
-                            required
-                            disabled={isEditing}
-                        />
-                    </div>
-
-                    <div className="form-field">
-                        <label>Observation</label>
-                        <textarea
-                            name="observation"
-                            placeholder="Observation"
-                            value={formValues.observation}
-                            onChange={handleChange}
-                            required
-                        />
-                    </div>
-
-                    <div className="form-field">
-                        <label>Field Code</label>
-                        <input
-                            type="text"
-                            name="fieldCode"
-                            placeholder="Field Code"
-                            value={formValues.fieldCode}
-                            onChange={handleChange}
-                            required
-                        />
-                    </div>
-
-                    <div className="form-field">
-                        <label>Observed Image URL</label>
-                        <input
-                            type="text"
-                            name="observedImage"
-                            placeholder="Observed Image URL"
-                            value={formValues.observedImage}
-                            onChange={handleChange}
-                        />
-                    </div>
-
-                    <button type="submit" className="submit-button">
-                        {isEditing ? "Update Log" : "Add Log"}
-                    </button>
-
-                    <button type="button" className="close-modal" onClick={handleClose}>
-                        Close
-                    </button>
-                </form>
-            </div>
-        </div>
+        <ReusableForm
+            initialValues={formValues}
+            fields={fields}
+            onSubmit={handleSubmit}
+            onClose={handleClose}
+            isEditing={isEditing}
+            showForm={showForm}
+        />
     );
 };
 

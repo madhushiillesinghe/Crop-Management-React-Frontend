@@ -1,12 +1,18 @@
-import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from "../../../store/Store.ts";
+import "../../../css/componet/Crop.css";
+import { addCrop, editCrop, toggleForm, setCurrentCropId } from "../../../reducer/CropReducer.ts";
 import { Crop } from "../../../model/Crop.ts";
-import "../../../css/componet/Crop.css"; // Ensure correct styling path
-import { addCrop, toggleForm, editCrop, setCurrentCropId } from "../../../reducer/CropReducer.ts";
+import ReusableForm from "../../Form/CommonForm.tsx";
 
 const CropForm: React.FC = () => {
-    const [formValues, setFormValues] = useState({
+    const crops = useSelector((state: RootState) => state.crop.crops);
+    const showForm = useSelector((state: RootState) => state.crop.showForm);
+    const currentCropId = useSelector((state: RootState) => state.crop.currentCropId);
+    const dispatch = useDispatch();
+
+    const initialValues = currentCropId
+        ? crops.find((crop) => crop.code === currentCropId) || {
         code: '',
         commonName: '',
         scientificName: '',
@@ -14,66 +20,8 @@ const CropForm: React.FC = () => {
         category: '',
         season: '',
         fieldCode: '',
-    });
-
-    const [isEditing, setIsEditing] = useState(false);
-    const crops = useSelector((state: RootState) => state.crop.crops);
-    const showForm = useSelector((state: RootState) => state.crop.showForm);
-    const currentCropId = useSelector((state: RootState) => state.crop.currentCropId);
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        if (currentCropId) {
-            const cropToEdit = crops.find((crop) => crop.code === currentCropId);
-            if (cropToEdit) {
-                setFormValues({
-                    code: cropToEdit.code,
-                    commonName: cropToEdit.commonName,
-                    scientificName: cropToEdit.scientificName,
-                    cropImage: cropToEdit.cropImage,
-                    category: cropToEdit.category,
-                    season: cropToEdit.season,
-                    fieldCode: cropToEdit.fieldCode,
-                });
-                setIsEditing(true);
-            }
-        } else {
-            resetForm();
-        }
-    }, [currentCropId, crops]);
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setFormValues({
-            ...formValues,
-            [e.target.name]: e.target.value,
-        });
-    };
-
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-
-        const newCrop: Crop = new Crop(
-            formValues.code,
-            formValues.commonName,
-            formValues.scientificName,
-            formValues.cropImage,
-            formValues.category,
-            formValues.season,
-            formValues.fieldCode,
-            []
-        );
-
-        if (isEditing) {
-            dispatch(editCrop(newCrop));
-        } else {
-            dispatch(addCrop(newCrop));
-        }
-
-        resetForm();
-    };
-
-    const resetForm = () => {
-        setFormValues({
+    }
+        : {
             code: '',
             commonName: '',
             scientificName: '',
@@ -81,100 +29,52 @@ const CropForm: React.FC = () => {
             category: '',
             season: '',
             fieldCode: '',
-        });
-        setIsEditing(false);
-        dispatch(toggleForm());
-        dispatch(setCurrentCropId(null)); // Reset currentCropId after submitting
+        };
+
+    const fields = [
+        { name: 'code', label: 'Code', type: 'text', placeholder: 'Code' },
+        { name: 'commonName', label: 'Common Name', type: 'text', placeholder: 'Common Name' },
+        { name: 'scientificName', label: 'Scientific Name', type: 'text', placeholder: 'Scientific Name' },
+        { name: 'cropImage', label: 'Crop Image URL', type: 'text', placeholder: 'Crop Image URL' },
+        { name: 'category', label: 'Category', type: 'text', placeholder: 'Category' },
+        { name: 'season', label: 'Season', type: 'text', placeholder: 'Season' },
+        { name: 'fieldCode', label: 'Field Code', type: 'text', placeholder: 'Field Code' },
+    ];
+
+    const handleSubmit = (values: Record<string, string>) => {
+        const newCrop: Crop = new Crop(
+            values.code,
+            values.commonName,
+            values.scientificName,
+            values.cropImage,
+            values.category,
+            values.season,
+            values.fieldCode,
+            []
+        );
+
+        if (currentCropId) {
+            dispatch(editCrop(newCrop));
+        } else {
+            dispatch(addCrop(newCrop));
+        }
+        handleClose();
     };
 
     const handleClose = () => {
-        resetForm();
+        dispatch(toggleForm());
+        dispatch(setCurrentCropId(null));
     };
 
     return (
-        <div className={`modal-overlay ${showForm ? 'show' : ''}`}>
-            <div className="modal-content">
-                <form onSubmit={handleSubmit} className="crop-form">
-                    <h2>{isEditing ? "Edit Crop" : "Add New Crop"}</h2>
-                    <div className="form-field">
-                        <label>Code</label>
-                        <input
-                            type="text"
-                            name="code"
-                            placeholder="Code"
-                            value={formValues.code}
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <div className="form-field">
-                        <label>Common Name</label>
-                        <input
-                            type="text"
-                            name="commonName"
-                            placeholder="Common Name"
-                            value={formValues.commonName}
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <div className="form-field">
-                        <label>Scientific Name</label>
-                        <input
-                            type="text"
-                            name="scientificName"
-                            placeholder="Scientific Name"
-                            value={formValues.scientificName}
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <div className="form-field">
-                        <label>Crop Image URL</label>
-                        <input
-                            type="text"
-                            name="cropImage"
-                            placeholder="Crop Image URL"
-                            value={formValues.cropImage}
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <div className="form-field">
-                        <label>Category</label>
-                        <input
-                            type="text"
-                            name="category"
-                            placeholder="Category"
-                            value={formValues.category}
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <div className="form-field">
-                        <label>Season</label>
-                        <input
-                            type="text"
-                            name="season"
-                            placeholder="Season"
-                            value={formValues.season}
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <div className="form-field">
-                        <label>Field Code</label>
-                        <input
-                            type="text"
-                            name="fieldCode"
-                            placeholder="Field Code"
-                            value={formValues.fieldCode}
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <button type="submit" className="submit-button">
-                        {isEditing ? "Update Crop" : "Submit"}
-                    </button>
-                    <button type="button" className="close-modal" onClick={handleClose}>
-                        Close
-                    </button>
-                </form>
-            </div>
-        </div>
+        <ReusableForm
+            initialValues={initialValues}
+            fields={fields}
+            onSubmit={handleSubmit}
+            onClose={handleClose}
+            isEditing={!!currentCropId}
+            showForm={showForm}
+        />
     );
 };
 

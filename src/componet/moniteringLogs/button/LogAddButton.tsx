@@ -1,19 +1,9 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import {toggleMonitoringLogForm} from "../../../reducer/MoniteringLogReducer.ts";
+import { toggleMonitoringLogForm } from '../../../reducer/MoniteringLogReducer.ts';
+import ReusableButton from "../../button/ActionButton.tsx";
 
 const MonitoringLogAddButton: React.FC = () => {
-    const dispatch = useDispatch();
-
-    const handleAddMonitoringLogClick = () => {
-        dispatch(toggleMonitoringLogForm());
-    };
-
-    return (
-        <button onClick={handleAddMonitoringLogClick} className="add-monitoring-log-button">
-            Add Monitoring Log
-        </button>
-    );
+    return <ReusableButton label="Add Monitoring Log" onClickAction={toggleMonitoringLogForm} className="add-monitoring-log-button"></ReusableButton>;
 };
 
 export default MonitoringLogAddButton;

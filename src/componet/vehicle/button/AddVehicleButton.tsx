@@ -1,19 +1,9 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import {toggleVehicleForm} from "../../../reducer/VehicleReducer.ts";
+import { toggleVehicleForm } from '../../../reducer/VehicleReducer.ts';
+import ReusableButton from "../../button/ActionButton.tsx";
 
 const AddVehicleButton: React.FC = () => {
-    const dispatch = useDispatch();
-
-    const handleAddVehicle = () => {
-        dispatch(toggleVehicleForm()); // Toggle form visibility
-    };
-
-    return (
-        <button onClick={handleAddVehicle} className="add-vehicle-btn">
-            Add Vehicle
-        </button>
-    );
+    return <ReusableButton label="Add Vehicle" onClickAction={toggleVehicleForm} className="add-vehicle-btn" />;
 };
 
 export default AddVehicleButton;

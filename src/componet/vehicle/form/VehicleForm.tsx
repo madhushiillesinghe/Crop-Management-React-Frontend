@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from "../../../store/Store.ts";
-import "../../../css/componet/Vehicle.css";
 import { addVehicle, editVehicle, toggleVehicleForm } from "../../../reducer/VehicleReducer.ts";
+import ReusableForm from "../../Form/CommonForm.tsx";
+import "../../../css/componet/Vehicle.css"
 
 const VehicleForm: React.FC = () => {
     const dispatch = useDispatch();
@@ -10,7 +11,8 @@ const VehicleForm: React.FC = () => {
     const showForm = useSelector((state: RootState) => state.vehicle.showForm);
     const currentVehicleCode = useSelector((state: RootState) => state.vehicle.currentVehicleCode);
 
-    const [vehicleData, setVehicleData] = useState({
+    const [isEditing, setIsEditing] = useState(false);
+    const [initialFormData, setInitialFormData] = useState({
         vehicleCode: '',
         licensePlateNo: '',
         vehicleCategory: '',
@@ -20,150 +22,69 @@ const VehicleForm: React.FC = () => {
         staffId: '',
     });
 
-    const [isEditing, setIsEditing] = useState(false);
-
     useEffect(() => {
         if (currentVehicleCode) {
             const vehicleToEdit = vehicleItems.find(vehicle => vehicle.vehicleCode === currentVehicleCode);
             if (vehicleToEdit) {
-                setVehicleData(vehicleToEdit);
                 setIsEditing(true);
+                // Update initial form data with the vehicle's details
+                setInitialFormData({
+                    vehicleCode: vehicleToEdit.vehicleCode,
+                    licensePlateNo: vehicleToEdit.licensePlateNo,
+                    vehicleCategory: vehicleToEdit.vehicleCategory,
+                    fuelType: vehicleToEdit.fuelType,
+                    status: vehicleToEdit.status,
+                    remarks: vehicleToEdit.remarks,
+                    staffId: vehicleToEdit.staffId,
+                });
             }
         } else {
-            resetForm();
+            setIsEditing(false);
+            setInitialFormData({
+                vehicleCode: '',
+                licensePlateNo: '',
+                vehicleCategory: '',
+                fuelType: '',
+                status: '',
+                remarks: '',
+                staffId: '',
+            });
         }
     }, [currentVehicleCode, vehicleItems]);
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setVehicleData({ ...vehicleData, [e.target.name]: e.target.value });
-    };
+    const vehicleFields = [
+        { name: 'vehicleCode', label: 'Vehicle Code', type: 'text', placeholder: 'Vehicle Code' },
+        { name: 'licensePlateNo', label: 'License Plate No', type: 'text', placeholder: 'License Plate No' },
+        { name: 'vehicleCategory', label: 'Vehicle Category', type: 'text', placeholder: 'Vehicle Category' },
+        { name: 'fuelType', label: 'Fuel Type', type: 'text', placeholder: 'Fuel Type' },
+        { name: 'status', label: 'Status', type: 'text', placeholder: 'Status' },
+        { name: 'remarks', label: 'Remarks', type: 'text', placeholder: 'Remarks' },
+        { name: 'staffId', label: 'Staff ID', type: 'text', placeholder: 'Staff ID' },
+    ];
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
+    const handleSubmit = (formData: Record<string, string>) => {
         if (isEditing) {
-            dispatch(editVehicle(vehicleData));
+            dispatch(editVehicle(formData));
         } else {
-            dispatch(addVehicle(vehicleData));
+            dispatch(addVehicle(formData));
         }
-        resetForm();
-    };
-
-    const resetForm = () => {
-        setVehicleData({
-            vehicleCode: '',
-            licensePlateNo: '',
-            vehicleCategory: '',
-            fuelType: '',
-            status: '',
-            remarks: '',
-            staffId: '',
-        });
-        setIsEditing(false);
         dispatch(toggleVehicleForm());
     };
 
     const handleClose = () => {
-        resetForm();
+        dispatch(toggleVehicleForm());
     };
 
     return (
-        <div className={`modal-overlay ${showForm ? 'show' : ''}`}>
-            <div className="modal-content">
-                <form onSubmit={handleSubmit} className="vehicle-form">
-                    <h2>{isEditing ? "Edit Vehicle" : "Add New Vehicle"}</h2>
-
-                    <div className="form-field">
-                        <label>Vehicle Code</label>
-                        <input
-                            type="text"
-                            name="vehicleCode"
-                            placeholder="Vehicle Code"
-                            value={vehicleData.vehicleCode}
-                            onChange={handleInputChange}
-                            required
-                        />
-                    </div>
-
-                    <div className="form-field">
-                        <label>License Plate No</label>
-                        <input
-                            type="text"
-                            name="licensePlateNo"
-                            placeholder="License Plate No"
-                            value={vehicleData.licensePlateNo}
-                            onChange={handleInputChange}
-                            required
-                        />
-                    </div>
-
-                    <div className="form-field">
-                        <label>Vehicle Category</label>
-                        <input
-                            type="text"
-                            name="vehicleCategory"
-                            placeholder="Vehicle Category"
-                            value={vehicleData.vehicleCategory}
-                            onChange={handleInputChange}
-                            required
-                        />
-                    </div>
-
-                    <div className="form-field">
-                        <label>Fuel Type</label>
-                        <input
-                            type="text"
-                            name="fuelType"
-                            placeholder="Fuel Type"
-                            value={vehicleData.fuelType}
-                            onChange={handleInputChange}
-                            required
-                        />
-                    </div>
-
-                    <div className="form-field">
-                        <label>Status</label>
-                        <input
-                            type="text"
-                            name="status"
-                            placeholder="Status"
-                            value={vehicleData.status}
-                            onChange={handleInputChange}
-                            required
-                        />
-                    </div>
-
-                    <div className="form-field">
-                        <label>Remarks</label>
-                        <input
-                            type="text"
-                            name="remarks"
-                            placeholder="Remarks"
-                            value={vehicleData.remarks}
-                            onChange={handleInputChange}
-                        />
-                    </div>
-
-                    <div className="form-field">
-                        <label>Staff ID</label>
-                        <input
-                            type="text"
-                            name="staffId"
-                            placeholder="Staff ID"
-                            value={vehicleData.staffId}
-                            onChange={handleInputChange}
-                            required
-                        />
-                    </div>
-
-                    <button type="submit" className="submit-button">
-                        {isEditing ? "Update Vehicle" : "Submit"}
-                    </button>
-
-                    <button type="button" className="close-modal" onClick={handleClose}>
-                        Close
-                    </button>
-                </form>
-            </div>
+        <div>
+            <ReusableForm
+                initialValues={initialFormData}
+                fields={vehicleFields}
+                onSubmit={handleSubmit}
+                onClose={handleClose}
+                isEditing={isEditing}
+                showForm={showForm}
+            />
         </div>
     );
 };

@@ -3,5 +3,10 @@
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
-  ]
+  ],
+  "compilerOptions": {
+    "jsx": "react-jsx", // For React 17+
+    "moduleResolution": "node", // Resolve modules via Node.js-style resolution
+    "strict": true // Enable strict type checking
+  }
 }

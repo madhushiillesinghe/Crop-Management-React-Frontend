@@ -1,20 +1,9 @@
-// component/field/button/AddFieldButton.tsx
 import React from 'react';
-import { useDispatch } from 'react-redux';
 import { toggleFieldForm } from '../../../reducer/FieldReducer.ts';
+import ReusableButton from "../../button/ActionButton.tsx";
 
 const AddFieldButton: React.FC = () => {
-    const dispatch = useDispatch();
-
-    const handleAddFieldClick = () => {
-        dispatch(toggleFieldForm());
-    };
-
-    return (
-        <button onClick={handleAddFieldClick} className="add-field-button">
-            Add Field
-        </button>
-    );
+    return <ReusableButton label="Add Field" onClickAction={toggleFieldForm} className="add-field-button" />;
 };
 
 export default AddFieldButton;
