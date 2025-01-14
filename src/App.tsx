@@ -1,5 +1,4 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+    import React from 'react';
 import { Provider } from 'react-redux';
 import store from './store/Store.ts';
 import CropPage from './pages/CropPage.tsx';
@@ -8,48 +7,28 @@ import FieldPage from "./pages/FieldPage.tsx";
 import VehiclePage from "./pages/VehiclePage.tsx";
 import StaffPage from "./pages/StaffPage.tsx";
 import MoniteringLogPage from "./pages/MoniteringLogPage.tsx";
+    import {RootLayout} from "./componet/RootLayout.tsx";
+    import {createBrowserRouter, RouterProvider} from "react-router-dom";
 
 
 const App: React.FC = () => {
+    const routes = createBrowserRouter([
+        {
+            path: '',
+            element: <RootLayout />,
+            children: [
+                { path:"/equipment", element: <EquipmentPage />},
+                { path:"/crop", element:<CropPage />} ,
+                { path:"/field", element:<FieldPage />},
+                {path:"/vehicle" ,element:<VehiclePage />},
+                {path :"/staff" ,element:<StaffPage />} ,
+                {path:"/log", element:<MoniteringLogPage />}
+            ],
+        },
+    ]);
     return (
         <Provider store={store}>
-            <Router>
-                <div>
-                    <nav>
-                        <ul>
-                            {/* Navigation Links */}
-                            <li>
-                                <Link to="/equipment">Equipment</Link>
-                            </li>
-                            <li>
-                                <Link to="/crop">Crop</Link>
-                            </li>
-                            <li>
-                                <Link to="/field">Field</Link>
-                            </li>
-                            <li>
-                                <Link to="/vehicle">Vehicle</Link>
-                            </li>
-                            <li>
-                                <Link to="/staff">Staff</Link>
-                            </li>
-                            <li>
-                                <Link to="/log">log</Link>
-                            </li>
-                        </ul>
-                    </nav>
-                    <Routes>
-                        {/* Define Routes */}
-                        <Route path="/equipment" element={<EquipmentPage />} />
-                        <Route path="/crop" element={<CropPage />} />
-                        <Route path="/field" element={<FieldPage />} />
-                        <Route path="/vehicle" element={<VehiclePage />} />
-                        <Route path="/staff" element={<StaffPage />} />
-                        <Route path="/log" element={<MoniteringLogPage />} />
-
-                    </Routes>
-                </div>
-            </Router>
+           <RouterProvider router={routes}/>
         </Provider>
     );
 };

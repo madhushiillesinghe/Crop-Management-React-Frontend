@@ -8,8 +8,8 @@ const CropList: React.FC = () => {
     const dispatch = useDispatch();
 
     const handleEdit = (cropId: string) => {
-        dispatch(setCurrentCropId(cropId)); // Set the current crop ID for editing
-        dispatch(toggleForm());  // Show the form when editing
+        dispatch(setCurrentCropId(cropId));
+        dispatch(toggleForm());
     };
 
     const handleDelete = (cropId: string) => {

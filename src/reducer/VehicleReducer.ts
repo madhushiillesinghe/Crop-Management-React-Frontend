@@ -1,4 +1,3 @@
-    // reducer/vehicleReducer.ts
     import { createSlice, PayloadAction } from '@reduxjs/toolkit';
     import { Vehicle } from '../model/Vehicle.ts';
 

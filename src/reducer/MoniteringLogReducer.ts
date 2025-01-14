@@ -4,13 +4,13 @@ import { MoniteringLog } from '../model/MoniteringLog.ts';
 interface MonitoringLogState {
     monitoringLogs: MoniteringLog[];
     currentLogCode: string | null;
-    showForm: boolean; // Added to handle form visibility
+    showForm: boolean;
 }
 
 const initialState: MonitoringLogState = {
     monitoringLogs: [],
     currentLogCode: null,
-    showForm: false, // Initial form visibility state
+    showForm: false,
 };
 
 const monitoringLogSlice = createSlice({
