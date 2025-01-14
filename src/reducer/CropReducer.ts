@@ -8,10 +8,42 @@ interface CropState {
 }
 
 const initialState: CropState = {
-    crops: [],
+    crops: [
+        new Crop(
+            "C001",
+            "Rice",
+            "Oryza sativa",
+            "https://via.placeholder.com/150",
+            "Grain",
+            "Kharif",
+            "F001",
+            []
+        ),
+        new Crop(
+            "C002",
+            "Wheat",
+            "Triticum aestivum",
+            "https://via.placeholder.com/150",
+            "Grain",
+            "Rabi",
+            "F002",
+            []
+        ),
+        new Crop(
+            "C003",
+            "Tomato",
+            "Solanum lycopersicum",
+            "https://via.placeholder.com/150",
+            "Vegetable",
+            "All Season",
+            "F003",
+            []
+        ),
+    ],
     showForm: false,
     currentCropId: null,
 };
+
 
 const cropSlice = createSlice({
     name: 'crop',

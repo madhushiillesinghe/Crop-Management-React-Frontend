@@ -8,7 +8,35 @@ interface MonitoringLogState {
 }
 
 const initialState: MonitoringLogState = {
-    monitoringLogs: [],
+    monitoringLogs: [
+        {
+            logCode: 'LOG001',
+            logDate: new Date('2024-01-10'),
+            observation: 'Healthy crop with good growth.',
+            fieldCode: 'FIELD001',
+            observedImage: 'https://via.placeholder.com/150',
+            staffList: [],
+            cropList: [],
+        },
+        {
+            logCode: 'LOG002',
+            logDate: new Date('2024-01-11'),
+            observation: 'Pest issue in some areas.',
+            fieldCode: 'FIELD002',
+            observedImage: 'https://via.placeholder.com/150',
+            staffList: [],
+            cropList: [],
+        },
+        {
+            logCode: 'LOG003',
+            logDate: new Date('2024-01-12'),
+            observation: 'Requires irrigation.',
+            fieldCode: 'FIELD003',
+            observedImage: 'https://via.placeholder.com/150',
+            staffList: [],
+            cropList: [],
+        },
+    ],
     currentLogCode: null,
     showForm: false,
 };
@@ -38,7 +66,6 @@ const monitoringLogSlice = createSlice({
             }
         },
 
-        // Delete a monitoring log by logCode
         deleteMonitoringLog: (state, action: PayloadAction<string>) => {
             state.monitoringLogs = state.monitoringLogs.filter(
                 (log) => log.logCode !== action.payload

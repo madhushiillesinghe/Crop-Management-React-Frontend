@@ -1,4 +1,5 @@
-.vehicle-form {
+/* Equipment Form Styling */
+.equipment-form {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -10,14 +11,13 @@
     background-color: #f9f9f9;
 }
 
-
-.vehicle-form h2 {
+.equipment-form h2 {
     text-align: center;
     margin-bottom: 15px;
     color: #333;
 }
 
-.form-vehicle {
+.form-field {
     display: flex;
     flex-direction: column;
 }
@@ -95,23 +95,24 @@ input:focus {
     width: 100%;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
 /* Styling for the staff list */
-.vehicle-list {
+.equipment-list {
     margin-top: 40px;
 }
 
-.vehicle-list h3 {
+.equipment-list h3 {
     text-align: center;
     color: #333;
 }
 
-.vehicle-cards {
+.equipment-cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
 
-.vehicle-card {
+.equipment-card {
     width: 250px;
     background-color: white;
     padding: 20px;
@@ -122,17 +123,17 @@ input:focus {
     transition: transform 0.2s ease-in-out;
 }
 
-.vehicle-card:hover {
+.equipment-card:hover {
     transform: scale(1.05);
 }
 
-.vehicle-card p {
+.equipment-card p {
     margin: 5px 0;
     font-size: 16px;
     color: #333;
 }
 
-.vehicle-card button {
+.equipment-card button {
     padding: 6px 12px;
     margin: 5px;
     background-color: #ffc107;
@@ -144,29 +145,14 @@ input:focus {
     transition: background-color 0.3s ease;
 }
 
-.vehicle-card button:hover {
+.equipment-card button:hover {
     background-color: #e0a800;
 }
 
-.vehicle-card button:last-child {
+.equipment-card button:last-child {
     background-color: #dc3545;
 }
 
-.vehicle-card button:last-child:hover {
+.equipment-card button:last-child:hover {
     background-color: #c82333;
-}
-
-/* Responsive design for smaller screens */
-@media (max-width: 768px) {
-    .vehicle-form {
-        width: 90%;
-        padding: 15px;
-    }
-
-    .vehicle-form input, .vehicle-form button {
-        font-size: 14px;
-        padding: 10px;
-    }
-
-
 }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from "../../../store/Store.ts";
 import { Crop } from "../../../model/Crop.ts";
+import "../../../css/componet/Crop.css"; // Ensure correct styling path
 import { addCrop, toggleForm, editCrop, setCurrentCropId } from "../../../reducer/CropReducer.ts";
 
 const CropForm: React.FC = () => {

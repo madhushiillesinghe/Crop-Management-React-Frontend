@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from "../../../store/Store.ts";
 import { Equipment } from "../../../model/Equipment.ts";
+import "../../../css/componet/Equipment.css";
 import { addEquipment, toggleEquipmentForm, editEquipment } from "../../../reducer/EquipmentReducer.ts";
 
 const EquipmentForm: React.FC = () => {

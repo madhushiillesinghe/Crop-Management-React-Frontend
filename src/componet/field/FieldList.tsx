@@ -1,4 +1,3 @@
-// component/field/FieldList.tsx
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../store/Store.ts';
@@ -19,24 +18,32 @@ const FieldList: React.FC = () => {
     };
 
     return (
-        <div className="field-list">
-            <h3>Field List</h3>
-            <div className="field-cards">
+        <div className="p-6 bg-gray-100 min-h-screen field-list">
+            <h3 className="text-2xl font-bold text-center mb-6">Field List</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 field-cards">
                 {fieldItems.length > 0 ? (
                     fieldItems.map((field) => (
-                        <div key={field.fieldCode} className="field-card">
-                            <img src={field.fieldImage1 || 'https://via.placeholder.com/150'} alt={field.fieldName} />
-                            <div className="field-details">
-                                <h4>{field.fieldName}</h4>
-                                <p>Location: {field.fieldLocation}</p>
-                                <p>Extent Size: {field.extentSize} acres</p>
-
-
-                                <div className="field-actions">
-                                    <button onClick={() => handleEdit(field.fieldCode)} className="edit-button">
+                        <div key={field.fieldCode} className="bg-white shadow-lg rounded-lg overflow-hidden field-card">
+                            <img
+                                src={field.fieldImage1 || 'https://via.placeholder.com/150'}
+                                alt={field.fieldName}
+                                className="w-full h-32 object-cover"
+                            />
+                            <div className="p-4">
+                                <h4 className="text-xl font-semibold">{field.fieldName}</h4>
+                                <p className="text-gray-600">Location: {field.fieldLocation}</p>
+                                <p className="text-gray-600">Extent Size: {field.extentSize} acres</p>
+                                <div className="mt-4 flex justify-between">
+                                    <button
+                                        onClick={() => handleEdit(field.fieldCode)}
+                                        className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+                                    >
                                         Edit
                                     </button>
-                                    <button onClick={() => handleDelete(field.fieldCode)} className="delete-button">
+                                    <button
+                                        onClick={() => handleDelete(field.fieldCode)}
+                                        className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
+                                    >
                                         Delete
                                     </button>
                                 </div>
@@ -44,7 +51,7 @@ const FieldList: React.FC = () => {
                         </div>
                     ))
                 ) : (
-                    <p>No fields available. Add some fields!</p>
+                    <p className="text-center text-gray-500">No fields available. Add some fields!</p>
                 )}
             </div>
         </div>

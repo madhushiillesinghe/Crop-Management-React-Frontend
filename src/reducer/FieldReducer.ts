@@ -8,10 +8,34 @@ interface FieldState {
 }
 
 const initialState: FieldState = {
-    fieldItems: [],
+    fieldItems: [
+        {
+            fieldCode: 'F001',
+            fieldName: 'Green Valley',
+            fieldLocation: 'Hill Country',
+            extentSize: 15,
+            fieldImage1: 'https://via.placeholder.com/150/00FF00/FFFFFF?text=Green+Valley',
+            fieldImage2: '',
+            staffList: [],
+            cropList: [],
+            monitoringLogs: [],
+        },
+        {
+            fieldCode: 'F002',
+            fieldName: 'Sunny Acres',
+            fieldLocation: 'Coastal Plains',
+            extentSize: 20,
+            fieldImage1: 'https://via.placeholder.com/150/FFD700/FFFFFF?text=Sunny+Acres',
+            fieldImage2: '',
+            staffList: [],
+            cropList: [],
+            monitoringLogs: [],
+        },
+    ],
     showForm: false,
     currentFieldCode: null,
 };
+
 
 const fieldSlice = createSlice({
     name: 'field',

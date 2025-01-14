@@ -1,57 +1,53 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../store/Store.ts';
-import {deleteEquipment, setCurrentEquipmentId, toggleEquipmentForm} from "../../reducer/EquipmentReducer.ts";
+import { deleteEquipment, setCurrentEquipmentId, toggleEquipmentForm } from '../../reducer/EquipmentReducer.ts';
 
 const EquipmentList: React.FC = () => {
     const dispatch = useDispatch();
-
-    // Fetch equipment data from the Redux store
     const equipmentItems = useSelector((state: RootState) => state.equipment.equipmentItems);
 
-    // Edit handler
     const handleEdit = (equipmentId: string) => {
-        dispatch(setCurrentEquipmentId(equipmentId)); // Set the current equipment ID
-        dispatch(toggleEquipmentForm()); // Open the equipment form
+        dispatch(setCurrentEquipmentId(equipmentId));
+        dispatch(toggleEquipmentForm());
     };
 
-    // Delete handler
     const handleDelete = (equipmentId: string) => {
-        dispatch(deleteEquipment(equipmentId)); // Remove equipment from the list
+        dispatch(deleteEquipment(equipmentId));
     };
 
     return (
-        <div className="equipment-list">
-            <h3>Equipment List</h3>
-            <div className="equipment-cards">
+        <div className="p-4 equipment-list">
+            <h3 className="text-xl font-bold mb-4">Equipment List</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 equipment-cards">
                 {equipmentItems.length > 0 ? (
                     equipmentItems.map((equipment) => (
-                        <div key={equipment.id} className="equipment-card">
-                            <div className="equipment-details">
-                                <h4>{equipment.name}</h4>
-                                <p>Type: {equipment.type}</p>
-                                <p>Status: {equipment.status}</p>
-                                <p>Field Code: {equipment.fieldCode}</p>
-
-                                <div className="equipment-actions">
-                                    <button
-                                        onClick={() => handleEdit(equipment.id)}
-                                        className="edit-button"
-                                    >
-                                        <i className="fa fa-pencil" /> Edit
-                                    </button>
-                                    <button
-                                        onClick={() => handleDelete(equipment.id)}
-                                        className="delete-button"
-                                    >
-                                        <i className="fa fa-trash" /> Delete
-                                    </button>
-                                </div>
+                        <div
+                            key={equipment.id}
+                            className="bg-white shadow-md rounded-lg p-4 border border-gray-200 equipment-card"
+                        >
+                            <h4 className="text-lg font-semibold mb-2">{equipment.name}</h4>
+                            <p className="text-gray-600">Type: {equipment.type}</p>
+                            <p className="text-gray-600">Status: {equipment.status}</p>
+                            <p className="text-gray-600">Field Code: {equipment.fieldCode}</p>
+                            <div className="mt-4 flex justify-between">
+                                <button
+                                    onClick={() => handleEdit(equipment.id)}
+                                    className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                                >
+                                    <i className="fa fa-pencil mr-2" /> Edit
+                                </button>
+                                <button
+                                    onClick={() => handleDelete(equipment.id)}
+                                    className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+                                >
+                                    <i className="fa fa-trash mr-2" /> Delete
+                                </button>
                             </div>
                         </div>
                     ))
                 ) : (
-                    <p>No equipment available. Please add some equipment.</p>
+                    <p className="text-gray-500">No equipment available. Please add some equipment.</p>
                 )}
             </div>
         </div>

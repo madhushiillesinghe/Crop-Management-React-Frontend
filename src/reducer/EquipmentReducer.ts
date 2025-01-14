@@ -8,7 +8,11 @@ interface EquipmentState {
 }
 
 const initialState: EquipmentState = {
-    equipmentItems: [],
+    equipmentItems: [
+        new Equipment('EQ001', 'Tractor', 'Machinery', 'Available', 'FD001', 'STF001'),
+        new Equipment('EQ002', 'Harvester', 'Machinery', 'In Use', 'FD002', 'STF002'),
+        new Equipment('EQ003', 'Sprinkler', 'Irrigation', 'Available', 'FD003', 'STF003'),
+    ],
     showForm: false,
     currentEquipmentId: null,
 };

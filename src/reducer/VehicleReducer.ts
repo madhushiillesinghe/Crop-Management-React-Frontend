@@ -8,10 +8,39 @@
     }
 
     const initialState: VehicleState = {
-        vehicleItems: [],
+        vehicleItems: [
+            {
+                vehicleCode: "V001",
+                licensePlateNo: "ABC-1234",
+                vehicleCategory: "Car",
+                fuelType: "Petrol",
+                status: "Available",
+                remarks: "Brand new vehicle",
+                staffId: "S001",
+            },
+            {
+                vehicleCode: "V002",
+                licensePlateNo: "DEF-5678",
+                vehicleCategory: "Van",
+                fuelType: "Diesel",
+                status: "In Use",
+                remarks: "Needs servicing",
+                staffId: "S002",
+            },
+            {
+                vehicleCode: "V003",
+                licensePlateNo: "GHI-9101",
+                vehicleCategory: "Truck",
+                fuelType: "Diesel",
+                status: "Available",
+                remarks: "Heavy-duty truck",
+                staffId: "S003",
+            },
+        ],
         showForm: false,
         currentVehicleCode: null,
     };
+
 
     const vehicleSlice = createSlice({
         name: 'vehicle',
