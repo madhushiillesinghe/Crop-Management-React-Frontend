@@ -2,6 +2,8 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../store/Store.ts';
 import { deleteField, setCurrentFieldCode, toggleFieldForm } from '../../reducer/FieldReducer.ts';
+import backgroundImage from "../../assets/card-background/fieldCardBackground.jpg";
+
 
 const FieldList: React.FC = () => {
     const dispatch = useDispatch();
@@ -23,14 +25,15 @@ const FieldList: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 field-cards">
                 {fieldItems.length > 0 ? (
                     fieldItems.map((field) => (
-                        <div key={field.fieldCode} className="bg-white shadow-lg rounded-lg overflow-hidden field-card">
+                        <div key={field.fieldCode} className="bg-white shadow-lg rounded-lg overflow-hidden field-card" style={{ backgroundImage: `url(${backgroundImage})` }}
+                        >
                             <img
                                 src={field.fieldImage1 || 'https://via.placeholder.com/150'}
                                 alt={field.fieldName}
                                 className="w-full h-32 object-cover"
                             />
                             <div className="p-4">
-                                <h4 className="text-xl font-semibold">{field.fieldName}</h4>
+                                <h1 className="text-xl  ">{field.fieldName}</h1>
                                 <p className="text-gray-600">Location: {field.fieldLocation}</p>
                                 <p className="text-gray-600">Extent Size: {field.extentSize} acres</p>
                                 <div className="mt-4 flex justify-between">

@@ -2,6 +2,8 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../store/Store.ts';
 import { deleteEquipment, setCurrentEquipmentId, toggleEquipmentForm } from '../../reducer/EquipmentReducer.ts';
+import backgroundImage from '../../assets/card-background/equipmentcardBackground.png'; // Import the image
+
 
 const EquipmentList: React.FC = () => {
     const dispatch = useDispatch();
@@ -25,8 +27,10 @@ const EquipmentList: React.FC = () => {
                         <div
                             key={equipment.id}
                             className="bg-white shadow-md rounded-lg p-4 border border-gray-200 equipment-card"
+                            style={{backgroundImage: `url(${backgroundImage})`}}
+
                         >
-                            <h4 className="text-lg font-semibold mb-2">{equipment.name}</h4>
+                            <h1 className="text-lg font-semibold mb-2">{equipment.name}</h1>
                             <p className="text-gray-600">Type: {equipment.type}</p>
                             <p className="text-gray-600">Status: {equipment.status}</p>
                             <p className="text-gray-600">Field Code: {equipment.fieldCode}</p>
@@ -35,13 +39,13 @@ const EquipmentList: React.FC = () => {
                                     onClick={() => handleEdit(equipment.id)}
                                     className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
                                 >
-                                    <i className="fa fa-pencil mr-2" /> Edit
+                                    <i className="fa fa-pencil mr-2"/> Edit
                                 </button>
                                 <button
                                     onClick={() => handleDelete(equipment.id)}
                                     className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
                                 >
-                                    <i className="fa fa-trash mr-2" /> Delete
+                                    <i className="fa fa-trash mr-2"/> Delete
                                 </button>
                             </div>
                         </div>

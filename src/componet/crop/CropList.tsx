@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from "../../store/Store.ts";
 import { deleteCrop, toggleForm, setCurrentCropId } from "../../reducer/CropReducer.ts";
-
+import backgroundImage from '../../assets/card-background/cropCardBackground.jpg'; // Import the image
 
 const CropList: React.FC = () => {
     const crops = useSelector((state: RootState) => state.crop.crops);
@@ -25,6 +25,7 @@ const CropList: React.FC = () => {
                     <div
                         key={crop.code}
                         className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col crop-card"
+                        style={{ backgroundImage: `url(${backgroundImage})` }}
                     >
                         <img
                             src={crop.cropImage}
@@ -32,7 +33,7 @@ const CropList: React.FC = () => {
                             className="h-48 w-full object-cover"
                         />
                         <div className="p-4">
-                            <h4 className="text-lg font-bold text-gray-800">{crop.commonName}</h4>
+                            <h1 className="text-lg font-bold text-gray-800">{crop.commonName}</h1>
                             <p className="text-sm text-gray-600 italic">
                                 {crop.scientificName}
                             </p>
@@ -60,7 +61,6 @@ const CropList: React.FC = () => {
             </div>
         </div>
     );
-
 };
 
 export default CropList;

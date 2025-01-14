@@ -3,6 +3,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/Store';
 import { deleteStaff, setCurrentStaffId, toggleStaffForm } from '../../reducer/StaffReducer';
+import backgroundImage from "../../assets/card-background/staffCardBackground.jpg";
 
 const StaffList: React.FC = () => {
     const dispatch = useDispatch();
@@ -22,7 +23,8 @@ const StaffList: React.FC = () => {
             <h3 className="text-xl font-semibold mb-4">Staff List</h3>
             <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 staff-cards">
                 {staffList.map((staff) => (
-                    <div key={staff.id} className="bg-gray-100 p-4 rounded-md shadow-sm staff-card">
+                    <div key={staff.id} className="bg-gray-100 p-4 rounded-md shadow-sm staff-card"style={{ backgroundImage: `url(${backgroundImage})` }}
+                    >
                         <p className="font-bold text-lg">{staff.firstName} {staff.lastName}</p>
                         <p className="text-sm text-gray-600">Contact: {staff.contactNo}</p>
                         <p className="text-sm text-gray-600">Gender: {staff.gender}</p>

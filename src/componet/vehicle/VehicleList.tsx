@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from "../../store/Store.ts";
 import {deleteVehicle, setCurrentVehicleCode, toggleVehicleForm} from "../../reducer/VehicleReducer.ts";
+import backgroundImage from "../../assets/card-background/vehiclecardBackground.jpg";
 
 const VehicleList: React.FC = () => {
     const dispatch = useDispatch();
@@ -24,6 +25,8 @@ const VehicleList: React.FC = () => {
                     <div
                         key={vehicle.vehicleCode}
                         className="bg-white shadow-md rounded-lg p-4 border border-gray-200 vehicle-card"
+                        style={{ backgroundImage: `url(${backgroundImage})` }}
+
                     >
                         <h4 className="text-lg font-semibold text-gray-700">Code: {vehicle.vehicleCode}</h4>
                         <p className="text-gray-600">Plate No: {vehicle.licensePlateNo}</p>

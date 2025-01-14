@@ -48,14 +48,19 @@ input {
 }
 
 .crop-card {
-    display: flex;
-    flex-direction: column;
-    width: 200px;
-    border: 1px solid #ccc;
+    width: 250px;
+    padding: 20px;
+    margin: 10px;
     border-radius: 8px;
-    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+    transition: transform 0.2s ease-in-out;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: white;
 }
+
 
 .crop-card img {
     max-width: 100%;
@@ -114,16 +119,20 @@ input {
     justify-content: space-around;
 }
 
-.crop-card {
-    width: 250px;
-    background-color: white;
-    padding: 20px;
-    margin: 10px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.2s ease-in-out;
-}
+    .crop-card {
+        width: 250px;
+        padding: 20px;
+        margin: 10px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.2s ease-in-out;
+        background-size: cover; /* Make the image cover the entire card */
+        background-repeat: no-repeat; /* Prevent the image from repeating */
+        background-position: center; /* Center the image */
+        color: white; /* Adjust text color for contrast */
+    }
+
 
 .crop-card:hover {
     transform: scale(1.05);
