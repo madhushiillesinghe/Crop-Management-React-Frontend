@@ -1,11 +1,11 @@
 import { MoniteringLog } from './MoniteringLog';
 import {Staff} from './Staff';
 import {Crop} from './Crop';
-export class Field {
+export class FieldData {
     fieldCode: string;
     fieldName: string;
     fieldLocation:string;
-    extentSize:number;
+    extentSize:string;
     fieldImage1:string;
     fieldImage2:string;
     staffList:Staff[];
@@ -13,7 +13,7 @@ export class Field {
     monitoringLogs: MoniteringLog[];
 
 
-    constructor(fieldCode: string, fieldName: string, fieldLocation: string, extentSize: number, fieldImage1: string, fieldImage2: string, staffList: Staff[], cropList: Crop[], monitoringLogs: MoniteringLog[]) {
+    constructor(fieldCode: string, fieldName: string, fieldLocation: string, extentSize: string, fieldImage1: string, fieldImage2: string, staffList: Staff[], cropList: Crop[], monitoringLogs: MoniteringLog[]) {
         this.fieldCode = fieldCode;
         this.fieldName = fieldName;
         this.fieldLocation = fieldLocation;

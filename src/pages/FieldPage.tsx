@@ -7,7 +7,7 @@ import FieldList from "../componet/field/FieldList.tsx";
 
 
 const FieldPage: React.FC = () => {
-    const showForm = useSelector((state: RootState) => state.field.showForm);
+    const showForm = useSelector((state: RootState) => state.fieldData.showForm);
 
     return (
         <div>

@@ -10,7 +10,7 @@ const store = configureStore({
     reducer: {
         crop: cropReducer,
         equipment: equipmentReducer,
-        field: fieldReducer,
+        fieldData: fieldReducer,
         vehicle:vehicleReducer,
         staff:StaffReducer,
         monitoringLog:MoniteringLogReducer

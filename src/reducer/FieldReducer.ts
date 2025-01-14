@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Field } from '../model/Field';
+import {FieldData} from "../model/Field.ts";
 
 interface FieldState {
-    fieldItems: Field[];
+    fieldItems: FieldData[];
     showForm: boolean;
     currentFieldCode: string | null;
 }
@@ -47,10 +47,10 @@ const fieldSlice = createSlice({
         setCurrentFieldCode: (state, action: PayloadAction<string | null>) => {
             state.currentFieldCode = action.payload;
         },
-        addField: (state, action: PayloadAction<Field>) => {
+        addField: (state, action: PayloadAction<FieldData>) => {
             state.fieldItems.push(action.payload);
         },
-        editField: (state, action: PayloadAction<Field>) => {
+        editField: (state, action: PayloadAction<FieldData>) => {
             const index = state.fieldItems.findIndex(field => field.fieldCode === action.payload.fieldCode);
             if (index !== -1) {
                 state.fieldItems[index] = action.payload;

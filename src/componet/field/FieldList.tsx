@@ -6,7 +6,7 @@ import { deleteField, setCurrentFieldCode, toggleFieldForm } from '../../reducer
 const FieldList: React.FC = () => {
     const dispatch = useDispatch();
 
-    const fieldItems = useSelector((state: RootState) => state.field.fieldItems);
+    const fieldItems = useSelector((state: RootState) => state.fieldData.fieldItems);
 
     const handleEdit = (fieldCode: string) => {
         dispatch(setCurrentFieldCode(fieldCode));
