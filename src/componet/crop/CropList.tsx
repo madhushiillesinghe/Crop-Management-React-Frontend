@@ -2,7 +2,8 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from "../../store/Store.ts";
 import { deleteCrop, toggleForm, setCurrentCropId } from "../../reducer/CropReducer.ts";
-import backgroundImage from '../../assets/card-background/cropCardBackground.jpg'; // Import the image
+import { FaEdit, FaTrashAlt } from 'react-icons/fa'; // Importing the edit and delete icons
+import backgroundImage from '../../assets/card-background/cropCardBackground.jpg';
 
 const CropList: React.FC = () => {
     const crops = useSelector((state: RootState) => state.crop.crops);
@@ -44,15 +45,15 @@ const CropList: React.FC = () => {
                             <div className="flex justify-between mt-4">
                                 <button
                                     onClick={() => handleEdit(crop.code)}
-                                    className="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600"
+                                    className="p-2 bg-blue-500 text-white rounded hover:bg-blue-600"
                                 >
-                                    Edit
+                                    <FaEdit /> {/* Edit icon */}
                                 </button>
                                 <button
                                     onClick={() => handleDelete(crop.code)}
-                                    className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600"
+                                    className="p-2 bg-red-500 text-white rounded hover:bg-red-600"
                                 >
-                                    Delete
+                                    <FaTrashAlt /> {/* Delete icon */}
                                 </button>
                             </div>
                         </div>

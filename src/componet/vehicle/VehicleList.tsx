@@ -1,8 +1,9 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from "../../store/Store.ts";
-import {deleteVehicle, setCurrentVehicleCode, toggleVehicleForm} from "../../reducer/VehicleReducer.ts";
+import { deleteVehicle, setCurrentVehicleCode, toggleVehicleForm } from "../../reducer/VehicleReducer.ts";
 import backgroundImage from "../../assets/card-background/vehiclecardBackground.jpg";
+import { FaEdit, FaTrashAlt } from 'react-icons/fa'; // Importing icons
 
 const VehicleList: React.FC = () => {
     const dispatch = useDispatch();
@@ -26,7 +27,6 @@ const VehicleList: React.FC = () => {
                         key={vehicle.vehicleCode}
                         className="bg-white shadow-md rounded-lg p-4 border border-gray-200 vehicle-card"
                         style={{ backgroundImage: `url(${backgroundImage})` }}
-
                     >
                         <h1 className="text-lg font-semibold text-gray-700"> {vehicle.vehicleCode}</h1>
                         <p className="text-gray-600">Plate No: {vehicle.licensePlateNo}</p>
@@ -37,15 +37,15 @@ const VehicleList: React.FC = () => {
                         <div className="mt-4 flex justify-between">
                             <button
                                 onClick={() => handleEdit(vehicle.vehicleCode)}
-                                className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                                className="p-2 bg-blue-500 text-white rounded hover:bg-blue-600"
                             >
-                                Edit
+                                <FaEdit />
                             </button>
                             <button
                                 onClick={() => handleDelete(vehicle.vehicleCode)}
-                                className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+                                className="p-2 bg-red-500 text-white rounded hover:bg-red-600"
                             >
-                                Delete
+                                <FaTrashAlt />
                             </button>
                         </div>
                     </div>
@@ -54,6 +54,5 @@ const VehicleList: React.FC = () => {
         </div>
     );
 };
-
 
 export default VehicleList;
