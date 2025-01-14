@@ -25,7 +25,7 @@ const StaffList: React.FC = () => {
                 {staffList.map((staff) => (
                     <div key={staff.id} className="bg-gray-100 p-4 rounded-md shadow-sm staff-card"style={{ backgroundImage: `url(${backgroundImage})` }}
                     >
-                        <p className="font-bold text-lg">{staff.firstName} {staff.lastName}</p>
+                        <h1 className="font-bold text-lg">{staff.firstName} {staff.lastName}</h1>
                         <p className="text-sm text-gray-600">Contact: {staff.contactNo}</p>
                         <p className="text-sm text-gray-600">Gender: {staff.gender}</p>
                         <p className="text-sm text-gray-600">Designation: {staff.designation}</p>

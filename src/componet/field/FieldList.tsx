@@ -34,6 +34,7 @@ const FieldList: React.FC = () => {
                             />
                             <div className="p-4">
                                 <h1 className="text-xl  ">{field.fieldName}</h1>
+                                <p className="text-gray-600">Code: {field.fieldCode}</p>
                                 <p className="text-gray-600">Location: {field.fieldLocation}</p>
                                 <p className="text-gray-600">Extent Size: {field.extentSize} acres</p>
                                 <div className="mt-4 flex justify-between">

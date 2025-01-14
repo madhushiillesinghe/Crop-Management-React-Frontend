@@ -28,7 +28,7 @@ const VehicleList: React.FC = () => {
                         style={{ backgroundImage: `url(${backgroundImage})` }}
 
                     >
-                        <h4 className="text-lg font-semibold text-gray-700">Code: {vehicle.vehicleCode}</h4>
+                        <h1 className="text-lg font-semibold text-gray-700"> {vehicle.vehicleCode}</h1>
                         <p className="text-gray-600">Plate No: {vehicle.licensePlateNo}</p>
                         <p className="text-gray-600">Category: {vehicle.vehicleCategory}</p>
                         <p className="text-gray-600">Fuel Type: {vehicle.fuelType}</p>
