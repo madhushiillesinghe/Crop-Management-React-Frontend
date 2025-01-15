@@ -8,14 +8,20 @@ import VehiclePage from "./pages/VehiclePage.tsx";
 import StaffPage from "./pages/StaffPage.tsx";
 import MoniteringLogPage from "./pages/MoniteringLogPage.tsx";
     import {RootLayout} from "./componet/RootLayout.tsx";
-    import {createBrowserRouter, RouterProvider} from "react-router-dom";
+    import {createBrowserRouter , RouterProvider} from "react-router-dom";
 
 
 const App: React.FC = () => {
     const routes = createBrowserRouter([
         {
             path: '',
-            element: <RootLayout />,
+            element: (
+                <div className="app-layout">
+                    <div className="content">
+                        <RootLayout />
+                    </div>
+                </div>
+            ),
             children: [
                 { path:"/equipment", element: <EquipmentPage />},
                 { path:"/crop", element:<CropPage />} ,

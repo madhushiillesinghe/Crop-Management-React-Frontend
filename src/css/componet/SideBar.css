@@ -1,0 +1,103 @@
+/* Sidebar container */
+.sidebar {
+    width: 200px;
+    background-color: #ebeef1;
+    color: #0c110c;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 10px;
+}
+
+/* Sidebar title */
+.sidebar-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-left: 15px;
+}
+
+/* Welcome image */
+.welcome-back {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.welcome-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ddd; /* Optional: adds border around the circle */
+}
+
+/* Sidebar navigation */
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    padding-top: 20px;
+}
+
+/* Sidebar links */
+.sidebar nav ul li {
+    margin: 15px 0;
+    padding-top: 10px;
+}
+
+.sidebar nav ul li a {
+    text-decoration: none;
+    color: #110c0c;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+/* Spacing between icon and text */
+.sidebar nav ul li a .icon {
+    margin-right: 10px; /* Adds space between icon and text */
+}
+
+/* Active link style */
+.sidebar nav ul li a:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Bottom nav links */
+.bottom-nav {
+    margin-top: auto;
+    width: 100%;
+    margin-top: 10rem;
+}
+
+.bottom-nav ul {
+    padding-top: 20px;
+}
+
+.bottom-nav ul li {
+    margin: 10px 0;
+}
+
+.bottom-nav ul li a {
+    text-decoration: none;
+    color: #110c0c;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.bottom-nav ul li a .icon {
+    margin-right: 10px; /* Adds space between icon and text */
+}

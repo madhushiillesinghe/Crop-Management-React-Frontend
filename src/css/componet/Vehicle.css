@@ -109,6 +109,8 @@ input:focus {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    margin-left: 150px;
+
 }
 
 .vehicle-card {
@@ -172,4 +174,22 @@ input:focus {
     }
 
 
+}
+/*add button css*/
+.add-vehicle-btn{
+    padding: 13px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 100rem;
+    font-weight: 600;
+    font-size: 14px;
+
+}
+
+.add-vehicle-btn:hover {
+    background-color: #45a049;
 }

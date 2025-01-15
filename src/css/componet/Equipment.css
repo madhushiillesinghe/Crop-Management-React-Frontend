@@ -110,6 +110,8 @@ input:focus {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    margin-left: 150px;
+
 }
 
 .equipment-card {
@@ -158,4 +160,22 @@ input:focus {
 
 .equipment-card button:last-child:hover {
     background-color: #c82333;
+}
+/*add button css*/
+.add-equipment-button {
+    padding: 13px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 95rem;
+    font-weight: 600;
+    font-size: 14px;
+
+}
+
+.add-equipment-button:hover {
+    background-color: #45a049;
 }

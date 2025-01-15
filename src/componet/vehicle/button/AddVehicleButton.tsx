@@ -3,7 +3,11 @@ import { toggleVehicleForm } from '../../../reducer/VehicleReducer.ts';
 import ReusableButton from "../../button/ActionButton.tsx";
 
 const AddVehicleButton: React.FC = () => {
-    return <ReusableButton label="Add Vehicle" onClickAction={toggleVehicleForm} className="add-vehicle-btn" />;
+    return (
+        <div className="flex justify-end"> {/* Ensures right alignment */}
+            <ReusableButton label="Add Vehicle" onClickAction={toggleVehicleForm} className="add-vehicle-btn" />
+        </div>
+    );
 };
 
 export default AddVehicleButton;

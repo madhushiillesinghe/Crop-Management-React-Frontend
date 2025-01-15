@@ -42,9 +42,9 @@ input {
 /* Crop Card Styling */
 .crop-cards {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    gap: 10px;
     margin-top: 30px;
+    margin-left: 150px;
 }
 
 .crop-card {
@@ -166,4 +166,21 @@ input {
 
 .crop-card button:last-child:hover {
     background-color: #c82333;
+}
+/*add button css*/
+.add-crop-button {
+    padding: 13px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 100rem;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.add-crop-button:hover {
+    background-color: #45a049;
 }
