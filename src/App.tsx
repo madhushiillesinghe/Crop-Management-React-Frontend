@@ -9,6 +9,7 @@ import StaffPage from "./pages/StaffPage.tsx";
 import MoniteringLogPage from "./pages/MoniteringLogPage.tsx";
     import {RootLayout} from "./componet/RootLayout.tsx";
     import {createBrowserRouter , RouterProvider} from "react-router-dom";
+import Dashboard from "./pages/Dashboard.tsx";
 
 
 const App: React.FC = () => {
@@ -23,6 +24,7 @@ const App: React.FC = () => {
                 </div>
             ),
             children: [
+                { path:"/dashboard", element: <Dashboard />},
                 { path:"/equipment", element: <EquipmentPage />},
                 { path:"/crop", element:<CropPage />} ,
                 { path:"/field", element:<FieldPage />},

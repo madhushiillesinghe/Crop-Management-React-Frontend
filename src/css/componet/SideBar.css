@@ -76,7 +76,7 @@
 .bottom-nav {
     margin-top: auto;
     width: 100%;
-    margin-top: 10rem;
+    margin-top: 6rem;
 }
 
 .bottom-nav ul {
@@ -84,7 +84,7 @@
 }
 
 .bottom-nav ul li {
-    margin: 10px 0;
+    margin: 0px 0;
 }
 
 .bottom-nav ul li a {
