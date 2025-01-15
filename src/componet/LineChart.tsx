@@ -24,22 +24,22 @@ const options = {
         legend: {
             position: 'top' as const,
             margin: {
-                bottom: 780, // Add space at the bottom of the chart
+                bottom: 780,
             },
         },
         title: {
             display: true,
             text: 'Revenue Over Time (Line Chart)',
             margin: {
-                top:780, // Add space at the bottom of the chart
+                top:780,
             },
         },
     },
     scales: {
         y: {
             ticks: {
-                stepSize: 500, // Adjust the gap between ticks on the y-axis (step size)
-                beginAtZero: true, // Ensure the y-axis starts at zero
+                stepSize: 500,
+                beginAtZero: true,
                 columnGap: 105,
 
             },
