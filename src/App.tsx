@@ -10,9 +10,18 @@ import MoniteringLogPage from "./pages/MoniteringLogPage.tsx";
 import { RootLayout } from "./componet/RootLayout.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Dashboard from "./pages/Dashboard.tsx";
+import SignInPage from "./pages/SignInPage.tsx";
+import './App.css';
+import SignUpPage from "./pages/SignUpPage.tsx";
 
 const App: React.FC = () => {
     const routes = createBrowserRouter([
+        {
+            path: '/',
+            element: <SignInPage />, // This will directly show the SignInPage without RootLayout
+        },
+        { path: "/signup", element: <SignUpPage /> },
+
         {
             path: '/',
             element: (
@@ -23,7 +32,7 @@ const App: React.FC = () => {
                 </div>
             ),
             children: [
-                { path: "/", element: <Dashboard /> },
+                { path: "/dashboard", element: <Dashboard /> },
                 { path: "/equipment", element: <EquipmentPage /> },
                 { path: "/crop", element: <CropPage /> },
                 { path: "/field", element: <FieldPage /> },

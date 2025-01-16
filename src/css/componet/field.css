@@ -143,8 +143,8 @@ input:focus {
 .field-card button {
     padding: 6px 12px;
     margin: 5px;
-    background-color: #ffc107;
-    color: white;
+    background-color: rgba(255, 255, 255, 0.84);
+    color: black;
     font-size: 14px;
     border: none;
     border-radius: 5px;
@@ -153,11 +153,11 @@ input:focus {
 }
 
 .field-card button:hover {
-    background-color: #e0a800;
+    background-color: #419545;
 }
 
 .field-card button:last-child {
-    background-color: #dc3545;
+    background-color: rgba(255, 255, 255, 0.84);
 }
 
 .field-card button:last-child:hover {

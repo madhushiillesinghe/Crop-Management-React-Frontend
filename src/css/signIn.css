@@ -1,0 +1,209 @@
+/* General Container */
+body {
+    padding: 0;
+    margin: 0;
+}
+.signin-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Left Section (Image and Overlay) */
+.left-section {
+    width: 50%;
+    position: relative;
+}
+
+.cover-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0 70% 70% 0;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 80%;
+}
+
+.overlay-text p {
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+/* Right Section (Form) */
+.right-section {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa;
+}
+
+.form-container {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.form-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: #333;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #555;
+    margin-left: 20px;
+}
+
+.input-field {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    margin-left: 20px;
+}
+
+.input-field:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.4);
+}
+
+/* Submit Button */
+.submit-button {
+    width: 50%;
+    background: #15610c;
+    color: white;
+    padding: 10px;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 75px;
+}
+
+.submit-button:hover {
+    background: #0e4a05;
+}
+
+/* Social Sign-In */
+.social-signin {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.social-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: #f0f0f0;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.social-button:hover {
+    background: #e6e6e6;
+}
+
+.social-button.facebook {
+    color: #3b5998;
+}
+
+.social-button.google {
+    color: #db4437;
+}
+
+.social-button.twitter {
+    color: #1da1f2;
+}
+
+.social-button.linkedin {
+    color: #0077b5;
+}
+
+/* Redirect Text */
+.signup-container {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1rem;
+}
+
+.signup-container span {
+    color: #d5144d;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .signin-container {
+        flex-direction: column;
+    }
+
+    .left-section,
+    .right-section {
+        width: 100%;
+        height: auto;
+    }
+
+    .overlay-text {
+        bottom: 10%;
+        left: 10%;
+        font-size: 1.5rem;
+    }
+
+    .form-container {
+        width: 80%;
+        margin-top: 20px;
+    }
+
+    .form-title {
+        font-size: 1.5rem;
+    }
+
+    .input-field,
+    .submit-button {
+        font-size: 1rem;
+    }
+
+    .social-icons {
+        gap: 10px;
+    }
+}

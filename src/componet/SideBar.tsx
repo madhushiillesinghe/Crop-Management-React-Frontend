@@ -30,7 +30,7 @@ const Sidebar: React.FC = () => {
                 <ul>
 
                     <li>
-                        <NavLink to="/" activeClassName="active">
+                        <NavLink to="/dashboard" activeClassName="active">
                             <FontAwesomeIcon icon={faHome} className="icon"/> Home
                         </NavLink>
                     </li>
@@ -76,7 +76,7 @@ const Sidebar: React.FC = () => {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/signout">
+                        <NavLink to="/">
                             <FontAwesomeIcon icon={faSignOutAlt} className="icon" style={{color: 'red'}}/> Sign Out
                         </NavLink>
                     </li>
