@@ -1,38 +1,46 @@
-import React, { useEffect, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBell, faUserCircle } from '@fortawesome/free-solid-svg-icons';
+// TopBar.tsx
+import "../css/Topbar.css";
+import React, { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Import FontAwesomeIcon
+import {faBell, faUser, } from "@fortawesome/free-solid-svg-icons";
+import {userImage} from "../assets/user.png"
 
 const TopBar: React.FC = () => {
-    const [dateTime, setDateTime] = useState<string>('');
+    const [dateTime, setDateTime] = useState<string>("");
+
+    // Function to update date and time dynamically
+    const updateDateTime = () => {
+        const now = new Date();
+        const formattedDateTime = now.toLocaleString(); // Formats date and time
+        setDateTime(formattedDateTime);
+    };
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            const now = new Date();
-            setDateTime(now.toLocaleString());
-        }, 1000);
-
+        const interval = setInterval(updateDateTime, 100);
         return () => clearInterval(interval);
     }, []);
 
     return (
-        <div className="w-full h-[60px] bg-black shadow-lg flex items-center justify-between px-6">
-            {/* Left Section: Date and Time */}
-            <div className="text-black text-sm font-semibold">
-                {dateTime}
+        <div className="flex justify-between items-center p-4 bg-white shadow-md topbar">
+            {/* Left side: Name with green shadow */}
+            <div className="text-2xl font-bold text-gray-800 text-shadow-md title">
+                GREEN SHADOW
             </div>
 
-            {/* Right Section: Notification and User Logo */}
-            <div className="flex items-center gap-6">
-                {/* Notification Icon */}
-                <FontAwesomeIcon icon={faBell} className="text-black text-lg cursor-pointer" />
+            {/* Right side: Date, Time, Profile, and Notify icons */}
+            <div className="flex items-center space-x-4 additional-data">
+                {/* Date/Time */}
+                <div className="text-sm text-gray-600 data-time">{dateTime}</div>
 
-                {/* User Logo */}
-                <FontAwesomeIcon icon={faUserCircle} className="text-white text-3xl cursor-pointer" />
+                {/* Profile Icon */}
+                <div className="w-8 h-8 bg-green-500 text-white rounded-full flex notify-icon">
+                    <FontAwesomeIcon icon={faBell} />
+                </div>
 
-                {/* User Name with Green Shadow */}
-                <span className="text-black font-semibold text-lg shadow-lg shadow-green-500/50">
-                    User Name
-                </span>
+                {/* Notify Icon */}
+                <div className="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center user-icon">
+                    <FontAwesomeIcon icon={faUser} />
+                </div>
             </div>
         </div>
     );

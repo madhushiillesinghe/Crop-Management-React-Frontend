@@ -1,0 +1,43 @@
+body{
+    background-color: rgba(223, 237, 223, 0.18);
+}
+.topbar{
+    display: flex;
+    flex-direction: row;
+   margin-top: 5px;
+    background-color: white;
+   margin-left: 220px;
+    width:1685px;
+    height: 70px;
+    box-shadow: 10px 10px 10px rgba(1, 1, 2, 0.07);
+}
+.title{
+    margin-left: 8rem;
+    font-weight: bold;
+    font-size: 28px;
+    color: #299b63;
+    margin-top: 16px;
+}
+.additional-data{
+    display: flex;
+    flex-direction: row;
+    margin-left: 50rem;
+}
+.data-time{
+    margin-right: 10rem;
+    margin-top: 25px;
+    font-weight: bold;
+    font-size: 20px;
+
+}
+.notify-icon{
+    margin-top: 25px;
+    font-size: 20px;
+
+}
+.user-icon{
+    margin-top: 25px;
+    font-size: 20px;
+    margin-left: 40px;
+
+}
