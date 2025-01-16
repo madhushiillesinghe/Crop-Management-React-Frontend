@@ -127,10 +127,10 @@ input {
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
         text-align: center;
         transition: transform 0.2s ease-in-out;
-        background-size: cover; /* Make the image cover the entire card */
-        background-repeat: no-repeat; /* Prevent the image from repeating */
-        background-position: center; /* Center the image */
-        color: white; /* Adjust text color for contrast */
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        color: white;
     }
 
 
@@ -159,13 +159,15 @@ input {
 .crop-card button:hover {
     background-color: #419545;
 }
-
+.crop-card button:nth-child(2):hover {
+    background-color: #d51122;
+}
 .crop-card button:last-child {
     background-color: rgba(255, 255, 255, 0.84);
 }
 
 .crop-card button:last-child:hover {
-    background-color: #c82333;
+    background-color: #419545;
 }
 /*add button css*/
 .add-crop-button {

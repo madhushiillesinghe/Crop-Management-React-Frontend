@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {RootState} from "../../store/Store.ts";
 import {deleteMonitoringLog, setCurrentLogCode, toggleMonitoringLogForm} from "../../reducer/MoniteringLogReducer.ts";
 import "../../css/componet/Log.css"
+import {FaBook, FaEdit, FaTrashAlt} from "react-icons/fa";
 
 
 const MonitoringLogList: React.FC = () => {
@@ -36,11 +37,14 @@ const MonitoringLogList: React.FC = () => {
                         <td>{log.observation}</td>
                         <td>{log.fieldCode}</td>
                         <td>
-                            <button onClick={() => handleEdit(log.logCode)}>Edit</button>
-                            <button onClick={() => handleDelete(log.logCode)}>Delete</button>
+                            <button onClick={() => handleEdit(log.logCode)}><FaEdit/>
+                            </button>
+                            <button onClick={() => handleDelete(log.logCode)}><FaTrashAlt/></button>
+                            <button onClick={() => handleEdit(log.logCode)}><FaBook/></button>
+
                         </td>
                     </tr>
-                ))}
+                    ))}
                 </tbody>
             </table>
         </div>

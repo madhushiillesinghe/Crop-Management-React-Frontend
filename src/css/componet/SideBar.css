@@ -35,7 +35,7 @@
     height: 50px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid #ddd; /* Optional: adds border around the circle */
+    border: 2px solid #ddd;
 }
 
 /* Sidebar navigation */
@@ -65,7 +65,7 @@
 
 /* Spacing between icon and text */
 .sidebar nav ul li a .icon {
-    margin-right: 10px; /* Adds space between icon and text */
+    margin-right: 10px;
 }
 
 /* Active link style */
@@ -101,5 +101,5 @@
 }
 
 .bottom-nav ul li a .icon {
-    margin-right: 10px; /* Adds space between icon and text */
+    margin-right: 10px;
 }

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/Store.ts';
 import { deleteEquipment, setCurrentEquipmentId, toggleEquipmentForm } from '../../reducer/EquipmentReducer.ts';
 import backgroundImage from '../../assets/card-background/equipmentcardBackground.png';
-import { FaEdit, FaTrashAlt } from 'react-icons/fa'; // Importing icons
+import {FaBook, FaEdit, FaTrashAlt} from 'react-icons/fa'; // Importing icons
 
 const EquipmentList: React.FC = () => {
     const dispatch = useDispatch();
@@ -38,13 +38,19 @@ const EquipmentList: React.FC = () => {
                                     onClick={() => handleEdit(equipment.id)}
                                     className="p-2 bg-blue-500 text-white rounded hover:bg-blue-600"
                                 >
-                                    <FaEdit />
+                                    <FaEdit/>
                                 </button>
                                 <button
                                     onClick={() => handleDelete(equipment.id)}
                                     className="p-2 bg-red-500 text-white rounded hover:bg-red-600"
                                 >
-                                    <FaTrashAlt />
+                                    <FaTrashAlt/>
+                                </button>
+                                <button
+                                    onClick={() => handleEdit(equipment.id)}
+                                    className="p-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                                >
+                                    <FaBook/>
                                 </button>
                             </div>
                         </div>

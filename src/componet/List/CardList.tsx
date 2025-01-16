@@ -7,6 +7,7 @@ interface Item {
     description: string;
     editAction: (id: string) => void;
     deleteAction: (id: string) => void;
+    viewAction: (id: string) => void;
     backgroundImage: string;
 }
 
@@ -15,6 +16,7 @@ interface ReusableCardListProps {
     title: string;
     editAction: (id: string) => void;
     deleteAction: (id: string) => void;
+    viewAction: (id: string) => void;
     backgroundImage: string;
 }
 
@@ -23,6 +25,7 @@ const ReusableCardList: React.FC<ReusableCardListProps> = ({
                                                                title,
                                                                editAction,
                                                                deleteAction,
+                                                               viewAction,
                                                                backgroundImage,
                                                            }) => {
     return (
@@ -56,6 +59,12 @@ const ReusableCardList: React.FC<ReusableCardListProps> = ({
                                         className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
                                     >
                                         Delete
+                                    </button>
+                                    <button
+                                        onClick={() => viewAction(item.id)}
+                                        className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
+                                    >
+                                        View
                                     </button>
                                 </div>
                             </div>

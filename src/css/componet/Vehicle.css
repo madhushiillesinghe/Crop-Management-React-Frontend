@@ -156,9 +156,11 @@ input:focus {
 .vehicle-card button:last-child {
     background-color: rgba(255, 255, 255, 0.84);
 }
-
+.vehicle-card button:nth-child(2):hover {
+    background-color: #d51122;
+}
 .vehicle-card button:last-child:hover {
-    background-color: #c82333;
+    background-color: #419545;
 }
 
 /* Responsive design for smaller screens */

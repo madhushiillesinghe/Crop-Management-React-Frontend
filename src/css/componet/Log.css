@@ -135,13 +135,15 @@ input:focus, textarea:focus {
 .monitoring-log-table td button {
     padding: 6px 12px;
     margin: 0 5px;
-    background-color: #4CAF50;
-    color: white;
+    background-color: #ebedeb;
+    color: black;;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
-
+.monitoring-log-table td button:nth-child(2):hover {
+    background-color: #af041e;
+}
 .monitoring-log-table td button:hover {
     background-color: #45a049;
 }

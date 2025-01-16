@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from "../../store/Store.ts";
 import { deleteCrop, toggleForm, setCurrentCropId } from "../../reducer/CropReducer.ts";
-import { FaEdit, FaTrashAlt } from 'react-icons/fa'; // Importing the edit and delete icons
+import { FaEdit, FaTrashAlt,FaBook } from 'react-icons/fa'; // Importing the edit and delete icons
 import backgroundImage from '../../assets/card-background/cropCardBackground.jpg';
 
 const CropList: React.FC = () => {
@@ -13,7 +13,11 @@ const CropList: React.FC = () => {
         dispatch(setCurrentCropId(cropId));
         dispatch(toggleForm());
     };
+    const handleView = (cropId: string) => {
+        dispatch(setCurrentCropId(cropId));
+        dispatch(toggleForm());
 
+    };
     const handleDelete = (cropId: string) => {
         dispatch(deleteCrop(cropId));
     };
@@ -47,13 +51,19 @@ const CropList: React.FC = () => {
                                     onClick={() => handleEdit(crop.code)}
                                     className="p-2 bg-blue-500 text-white rounded hover:bg-blue-600"
                                 >
-                                    <FaEdit /> {/* Edit icon */}
+                                    <FaEdit/> {/* Edit icon */}
                                 </button>
                                 <button
                                     onClick={() => handleDelete(crop.code)}
                                     className="p-2 bg-red-500 text-white rounded hover:bg-red-600"
                                 >
-                                    <FaTrashAlt /> {/* Delete icon */}
+                                    <FaTrashAlt/> {/* Delete icon */}
+                                </button>
+                                <button
+                                    onClick={() => handleView(crop.code)}
+                                    className="p-2 bg-red-500 text-white rounded hover:bg-red-600"
+                                >
+                                        <FaBook/> {/* Delete icon */}
                                 </button>
                             </div>
                         </div>

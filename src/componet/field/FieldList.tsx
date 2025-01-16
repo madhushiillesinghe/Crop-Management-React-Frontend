@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/Store.ts';
 import { deleteField, setCurrentFieldCode, toggleFieldForm } from '../../reducer/FieldReducer.ts';
 import backgroundImage from "../../assets/card-background/fieldCardBackground.jpg";
-import { FaEdit, FaTrashAlt } from 'react-icons/fa'; // Importing icons
+import {FaBook, FaEdit, FaTrashAlt} from 'react-icons/fa'; // Importing icons
 
 const FieldList: React.FC = () => {
     const dispatch = useDispatch();
@@ -40,13 +40,19 @@ const FieldList: React.FC = () => {
                                         onClick={() => handleEdit(field.fieldCode)}
                                         className="p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
                                     >
-                                        <FaEdit />
+                                        <FaEdit/>
                                     </button>
                                     <button
                                         onClick={() => handleDelete(field.fieldCode)}
                                         className="p-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
                                     >
-                                        <FaTrashAlt />
+                                        <FaTrashAlt/>
+                                    </button>
+                                    <button
+                                        onClick={() => handleEdit(field.fieldCode)}
+                                        className="p-2 bg-red-500 text-white rounded hover:bg-red-600"
+                                    >
+                                        <FaBook/> {/* Delete icon */}
                                     </button>
                                 </div>
                             </div>

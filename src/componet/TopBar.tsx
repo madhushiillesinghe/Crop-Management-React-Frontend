@@ -1,4 +1,3 @@
-// TopBar.tsx
 import "../css/Topbar.css";
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Import FontAwesomeIcon
@@ -7,7 +6,6 @@ import {faBell, faUser, } from "@fortawesome/free-solid-svg-icons";
 const TopBar: React.FC = () => {
     const [dateTime, setDateTime] = useState<string>("");
 
-    // Function to update date and time dynamically
     const updateDateTime = () => {
         const now = new Date();
         const formattedDateTime = now.toLocaleString(); // Formats date and time

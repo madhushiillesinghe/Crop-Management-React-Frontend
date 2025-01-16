@@ -159,9 +159,11 @@ input:focus {
 .field-card button:last-child {
     background-color: rgba(255, 255, 255, 0.84);
 }
-
+.field-card button:nth-child(2):hover {
+    background-color: #d51122;
+}
 .field-card button:last-child:hover {
-    background-color: #c82333;
+    background-color: #419545;
 }
 /*add button css*/
 .add-field-button {

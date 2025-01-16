@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/Store';
 import { deleteStaff, setCurrentStaffId, toggleStaffForm } from '../../reducer/StaffReducer';
 import backgroundImage from "../../assets/card-background/staffCardBackground.jpg";
-import { FaEdit, FaTrashAlt } from 'react-icons/fa'; // Importing icons
+import {FaBook, FaEdit, FaTrashAlt} from 'react-icons/fa'; // Importing icons
 
 const StaffList: React.FC = () => {
     const dispatch = useDispatch();
@@ -34,13 +34,19 @@ const StaffList: React.FC = () => {
                                 className="p-2 bg-blue-500 text-white rounded-md hover:bg-blue-700"
                                 onClick={() => handleEdit(staff.id)}
                             >
-                                <FaEdit />
+                                <FaEdit/>
                             </button>
                             <button
                                 className="p-2 bg-red-500 text-white rounded-md hover:bg-red-700"
                                 onClick={() => handleDelete(staff.id)}
                             >
-                                <FaTrashAlt />
+                                <FaTrashAlt/>
+                            </button>
+                            <button
+                                className="p-2 bg-blue-500 text-white rounded-md hover:bg-blue-700"
+                                onClick={() => handleEdit(staff.id)}
+                            >
+                                <FaBook/>
                             </button>
                         </div>
                     </div>
