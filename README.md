@@ -1,50 +1,42 @@
-# React + TypeScript + Vite
+# Crop Monitoring System for Green Shadow (Pvt) Ltd
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A comprehensive solution developed for Green Shadow (Pvt) Ltd, a mid-scale farm specializing in root crops and cereals. The system is designed to manage the company's growth by systemizing key areas such as fields, crops, staff, equipment, vehicles, and monitoring logs.
 
-Currently, two official plugins are available:
+## Tech Stack
+- **Frontend:** React (with TypeScript), Tailwind CSS, React Router
+- **State Management:** Redux (with Slices)
+- **Routing:** React Router
+- **Data Visualization:** Pie Chart, Line Chart (for Dashboard)
+- **Components:** Reusable Buttons, Forms, Lists, Root Layout, Navigation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Core Functionalities
 
-## Expanding the ESLint configuration
+### Field Management
+- Manage land allocated for specific crops.
+- Add, edit, view, and delete field details.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Crop Management
+- Track crop type, growth stages, total extent, and field observations.
+- Perform spatial and temporal data analysis.
 
-- Configure the top-level `parserOptions` property like this:
+### Staff Management
+- CRUD operations for staff details like designation, roles, and contact.
+- Assign staff to monitoring operations.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Monitoring Logs
+- Log observations and activities for fields and crops.
+- View detailed logs in a read-only format.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Equipment and Vehicle Management
+- Manage and track vehicles and agricultural equipment.
+- Perform relational analysis for labor and driver allocations.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+###  View Features
+- Dynamically load all data into interactive cards.
+- Cards provide buttons to view, edit, and delete records.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### Dashboard
+- **Pie Chart:** Visualize data like crop allocation or staff allocation by type.
+- **Line Chart:** Track temporal data such as crop growth or field activity over time.
+
+
