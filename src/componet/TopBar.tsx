@@ -3,7 +3,6 @@ import "../css/Topbar.css";
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Import FontAwesomeIcon
 import {faBell, faUser, } from "@fortawesome/free-solid-svg-icons";
-import {userImage} from "../assets/user.png"
 
 const TopBar: React.FC = () => {
     const [dateTime, setDateTime] = useState<string>("");

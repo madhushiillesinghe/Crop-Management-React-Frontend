@@ -4,16 +4,13 @@ import { RootState } from '../store/Store';
 import CropForm from "../componet/crop/form/CropForm.tsx";
 import CropButton from "../componet/crop/button/AddCropButton.tsx";
 import CropList from "../componet/crop/CropList.tsx";
-import TopBar from "../componet/TopBar.tsx";
 
 
 const CropPage: React.FC = () => {
     const showForm = useSelector((state: RootState) => state.crop.showForm);
 
     return (
-        <div className="min-h-screen bg-gray-100">
-            <TopBar
-            />
+
 
             <div className="p-6">
                 <h1 className="text-2xl font-bold mb-4">Crop Management</h1>
@@ -21,7 +18,6 @@ const CropPage: React.FC = () => {
                 {showForm && <CropForm />}
                 <CropList />
             </div>
-        </div>
     );
 };
 
