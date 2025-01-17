@@ -31,7 +31,7 @@ A comprehensive solution developed for Green Shadow (Pvt) Ltd, a mid-scale farm 
 - Manage and track vehicles and agricultural equipment.
 - Perform relational analysis for labor and driver allocations.
 
-###  View Features
+### View Features
 - Dynamically load all data into interactive cards.
 - Cards provide buttons to view, edit, and delete records.
 
@@ -39,4 +39,6 @@ A comprehensive solution developed for Green Shadow (Pvt) Ltd, a mid-scale farm 
 - **Pie Chart:** Visualize data like crop allocation or staff allocation by type.
 - **Line Chart:** Track temporal data such as crop growth or field activity over time.
 
+---
 
+**Frontend Screenshots:** [View Screenshots](https://drive.google.com/drive/folders/1owSm85JP3t5RRlyUphLcRpUTqGBL38SG?usp=sharing)
